@@ -1,26 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import './App.css';
 
-function Clock() {
-  const [date, setDate] = React.useState(new Date());
-  React.useEffect(() => {
-    const timer = setInterval(() => setDate(new Date()), 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, [date]);
-
+function App() {
   return (
-    <div>
-      <h1>Hello, world!</h1>
-      <h2>It is {date.toLocaleTimeString()}.</h2>
+    <FancyBorder color='blue'>
+      <h1 className='Dialog-title'>Welcome</h1>
+      <p className='Dialog-message'>Thank you for visiting our spacecraft!</p>
+    </FancyBorder>
+  );
+}
+
+function FancyBorder(props) {
+  return (
+    <div className={'FancyBorder FancyBorder-' + props.color}>
+      {props.children}
     </div>
   );
 }
-function tick() {
-  ReactDOM.render(<Clock />, document.getElementById('root'));
-}
 
-setInterval(tick, 1000);
-
-export default Clock;
+export default App;
