@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 function Clock() {
   const [date, setDate] = React.useState(new Date());
   React.useEffect(() => {
-    setInterval(() => setDate(new Date()), 1000);
+    const timer = setInterval(() => setDate(new Date()), 1000);
     return () => {
-      clearInterval();
+      clearInterval(timer);
     };
   }, [date]);
 
@@ -23,4 +23,4 @@ function tick() {
 
 setInterval(tick, 1000);
 
-export default tick;
+export default Clock;
